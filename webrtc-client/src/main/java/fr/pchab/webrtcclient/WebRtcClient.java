@@ -19,8 +19,8 @@ public class WebRtcClient {
     private final static int MAX_PEER = 2;
     private boolean[] endPoints = new boolean[MAX_PEER];
     private PeerConnectionFactory factory;
-    private HashMap<String, Peer> peers = new HashMap<>();
-    private LinkedList<PeerConnection.IceServer> iceServers = new LinkedList<>();
+    private HashMap<String, Peer> peers = new HashMap();
+    private LinkedList<PeerConnection.IceServer> iceServers = new LinkedList();
     private PeerConnectionParameters pcParams;
     private MediaConstraints pcConstraints = new MediaConstraints();
     private MediaStream localMS;
@@ -115,7 +115,7 @@ public class WebRtcClient {
         private HashMap<String, Command> commandMap;
 
         private MessageHandler() {
-            this.commandMap = new HashMap<>();
+            this.commandMap = new HashMap();
             commandMap.put("init", new CreateOfferCommand());
             commandMap.put("offer", new CreateAnswerCommand());
             commandMap.put("answer", new SetRemoteSDPCommand());
